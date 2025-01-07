@@ -48,7 +48,7 @@ const Main = () => {
           hasMore={hasMore} // InfiniteScroll will stop if this is false
           next={fetchMoreLaunches} // Function to fetch more data
           loader={loading && <LoadingSpinner />} // Show loader only if loading is true
-          scrollThreshold={1} // Trigger fetch when 80% down the scrollable container
+          scrollThreshold={0.9} // Trigger fetch when 80% down the scrollable container
           height={400} // Set the container height
           endMessage={
             !hasMore && (
