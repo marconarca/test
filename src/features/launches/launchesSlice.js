@@ -58,9 +58,10 @@ const launchesSlice = createSlice({
         state.launches = [...state.launches, ...newLaunches];
         state.offset += action.payload.length; // Update offset
 
-        // Set `hasMore` to false only if no results are returned
-        if (action.payload.length === 0) {
-          state.hasMore = false; // No more data
+        // Set `hasMore` to false if fewer results than the limit are returned
+        // or if no results are returned
+        if (action.payload.length < 10) {
+          state.hasMore = false;
         }
       })
       .addCase(fetchLaunches.rejected, (state, action) => {

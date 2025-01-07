@@ -13,8 +13,12 @@ const Main = () => {
   );
 
   const fetchMoreLaunches = () => {
-    console.log(!hasMore || launches.length % 10 !== 0);
-    if (!hasMore || launches.length % 10 !== 0) return; // Prevent unnecessary calls
+    // console.log(!hasMore || launches.length % 10 !== 0);
+    // if (!hasMore || launches.length % 10 !== 0) return; // Prevent unnecessary calls
+    // dispatch(fetchLaunches({ searchQuery, offset }));
+
+    console.log('hasMore:', hasMore, 'loading:', loading);
+    if (!hasMore || loading) return; // Prevent unnecessary calls
     dispatch(fetchLaunches({ searchQuery, offset }));
   };
 
@@ -27,12 +31,25 @@ const Main = () => {
     <div className={classes.listContainer}>
       <div className={classes.listWrapper} id="scrollableDev">
         <InfiniteScroll
-          dataLength={launches.length}
-          hasMore={hasMore}
-          next={fetchMoreLaunches}
-          loader={hasMore && loading && <LoadingSpinner />}
-          scrollThreshold={1}
-          height={400}
+          // dataLength={launches.length}
+          // hasMore={hasMore}
+          // next={fetchMoreLaunches}
+          // loader={hasMore && loading && <LoadingSpinner />}
+          // scrollThreshold={1}
+          // height={400}
+          // endMessage={
+          //   !hasMore && (
+          //     <p style={{ marginTop: '10px', textAlign: 'center' }}>
+          //       No more launches to load.
+          //     </p>
+          //   )
+          // }
+          dataLength={launches.length} // This should always match the current number of items rendered
+          hasMore={hasMore} // InfiniteScroll will stop if this is false
+          next={fetchMoreLaunches} // Function to fetch more data
+          loader={loading && <LoadingSpinner />} // Show loader only if loading is true
+          scrollThreshold={1} // Trigger fetch when 80% down the scrollable container
+          height={400} // Set the container height
           endMessage={
             !hasMore && (
               <p style={{ marginTop: '10px', textAlign: 'center' }}>
