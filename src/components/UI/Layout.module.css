@@ -1,0 +1,13 @@
+.wrapper {
+  width: 100%;
+  max-width: 700px;
+  margin-inline: auto;
+  display: block;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
