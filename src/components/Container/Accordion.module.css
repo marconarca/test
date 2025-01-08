@@ -23,3 +23,33 @@
   background-color: red;
   font-size: 14px;
 }
+
+.accordionInfo {
+  display: flex;
+  gap: 5px;
+}
+
+.accordionInfo > span {
+  font-size: 13px;
+}
+
+.accordionInfo > span:first-child {
+  color: gray;
+}
+.accordionInfo > span:nth-child(2) {
+  color: blue;
+  border-left: 2px solid gray;
+  padding-left: 5px;
+}
+.accordionInfo > span:nth-child(3) {
+  color: violet;
+  border-left: 2px solid gray;
+  padding-left: 5px;
+}
+
+.accordionSummary {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

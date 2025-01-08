@@ -12,6 +12,8 @@ const Main = () => {
     (state) => state.launches
   );
 
+  console.log({ launches });
+
   const fetchMoreLaunches = () => {
     // console.log(!hasMore || launches.length % 10 !== 0);
     // if (!hasMore || launches.length % 10 !== 0) return; // Prevent unnecessary calls
@@ -50,12 +52,6 @@ const Main = () => {
           scrollThreshold={0.9} // Trigger fetch when 80% down the scrollable container
           height={400} // Set the container height
           endMessage={
-            // launches.length === 0 &&
-            // !hasMore && (
-            //   <p style={{ marginTop: '10px', textAlign: 'center' }}>
-            //     No more launches to load.
-            //   </p>
-            // )
             launches.length === 0 ? (
               <p style={{ marginTop: '10px', textAlign: 'center' }}>
                 No result Please try again.
@@ -78,6 +74,7 @@ const Main = () => {
                   mission_name={item.mission_name}
                   launch_success={item.launch_success}
                   upcoming={item.upcoming}
+                  details={item.details}
                 />
               );
             })}
