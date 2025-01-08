@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './Accordion.module.css';
 
 const Accordion = ({ mission_name, launch_success, upcoming }) => {
+  const [isToggle, setIsToggle] = useState(false);
+
   const tag = upcoming ? 'upcoming' : launch_success ? 'success' : 'failed';
   const color = upcoming ? 'yellow' : launch_success ? 'green' : 'red';
 
